@@ -1,0 +1,14 @@
+package com.saket.dreamshop;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DreamShopApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DreamShopApplication.class, args);
+		System.out.println("Spring boot project is running successfully");
+	}
+
+}
