@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,8 +13,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Product
-{
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -23,7 +21,7 @@ public class Product
     private String name;
     private String description;
     private BigDecimal price;
-    private  String brand;
+    private String brand;
 
     private int inventory;
 
@@ -32,7 +30,7 @@ public class Product
     private Category category;
 
 
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Image> images;
 
 
