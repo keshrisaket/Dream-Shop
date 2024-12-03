@@ -16,6 +16,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
     private String name;
 
 
@@ -25,4 +26,5 @@ public class Category {
     public Category(String name) {
         this.name = name;
     }
+
 }

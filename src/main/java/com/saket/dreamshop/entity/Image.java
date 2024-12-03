@@ -18,6 +18,7 @@ public class Image {
     private String id;
 
     private String fileName;
+
     private String fileType;
 
     @Lob
