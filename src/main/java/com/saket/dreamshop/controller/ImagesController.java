@@ -33,7 +33,7 @@ public class ImagesController {
 
 
     @PostMapping(path = "/upload")
-    public ResponseEntity<ApiResponse> saveImages(@RequestParam List<MultipartFile> files, @RequestParam String productId) {
+    public ResponseEntity<ApiResponse> saveImages(@RequestPart List<MultipartFile> files, @RequestParam String productId) {
         try {
             List<ImageDto> images = imageService.saveImages(files, productId);
             return ResponseEntity.ok(new ApiResponse("Upload success!", images));
@@ -47,6 +47,7 @@ public class ImagesController {
     @GetMapping("/image/download/{imageId}")
     public ResponseEntity<Resource> downloadImage(@PathVariable String imageId) throws SQLException {
         Image image = imageService.getImageById(imageId);
+        System.out.println(image);
         ByteArrayResource resource = new ByteArrayResource(image.getImage().getBytes(1, (int) image.getImage().length()));
 
         return ResponseEntity.ok().contentType(MediaType.parseMediaType(image.getFileType()))

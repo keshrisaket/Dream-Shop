@@ -1,5 +1,6 @@
 package com.saket.dreamshop.service.product;
 
+import com.saket.dreamshop.dto.ProductDto;
 import com.saket.dreamshop.entity.Product;
 import com.saket.dreamshop.request.AddProductRequest;
 import com.saket.dreamshop.request.ProductUpdateRequest;
@@ -31,4 +32,7 @@ public interface IProductService {
     Long countProductsByBrandAndName(String brand, String name);
 
 
+    List<ProductDto> getConvertedProducts(List<Product> products);
+
+    ProductDto convertToDto(Product product);
 }
