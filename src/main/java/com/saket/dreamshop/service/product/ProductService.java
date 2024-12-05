@@ -11,7 +11,6 @@ import com.saket.dreamshop.repository.ImageRepository;
 import com.saket.dreamshop.repository.ProductRepository;
 import com.saket.dreamshop.request.AddProductRequest;
 import com.saket.dreamshop.request.ProductUpdateRequest;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class ProductService implements IProductService {
 
     private final ProductRepository productRepository;
@@ -27,6 +25,12 @@ public class ProductService implements IProductService {
     private final ModelMapper modelMapper;
     private final ImageRepository imageRepository;
 
+    public ProductService(ProductRepository productRepository, CategoryRepository categoryRepository, ModelMapper modelMapper, ImageRepository imageRepository) {
+        this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
+        this.modelMapper = modelMapper;
+        this.imageRepository = imageRepository;
+    }
 
     @Override
     public Product addProduct(AddProductRequest product) {
